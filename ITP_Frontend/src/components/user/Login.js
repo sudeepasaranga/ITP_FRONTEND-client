@@ -8,21 +8,21 @@ const Login = () => {
 
     let history = useHistory();
 
-    const [cemail,setCemail] = useState('');
-    const [cpassword, setCpassword] = useState('');
+    const [email,setEmail] = useState('');
+    const [password, setPassword] = useState('');
 
     const loginCustomer = async (e) => {
         e.preventDefault();
 
-        const res   =  await fetch('http://localhost:8070/customer/login', {
+        const res   =  await fetch('http://localhost:8081/api/customer/customer/login', {
 
             method :"POST",
             headers : {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                cemail,
-                cpassword
+                email,
+                password
             })
         });
  
@@ -74,9 +74,9 @@ const Login = () => {
                                     <label htmlFor="email_field">Email</label>
                                     <input
                                         className="form-control"
-                                        type="email" id="cemail" name="cemail"
-                                        value={cemail}
-                                        onChange={(e) => setCemail(e.target.value)}
+                                        type="email" id="email" name="email"
+                                        value={email}
+                                        onChange={(e) => setEmail(e.target.value)}
                                         required
                                     />
                                 </div>
@@ -86,9 +86,9 @@ const Login = () => {
                                 
                                     <input
                                         className="form-control"
-                                        type="password" id="cpassword" name="cpassword"
-                                        value={cpassword}
-                                        onChange={(e) => setCpassword(e.target.value)}
+                                        type="password" id="password" name="password"
+                                        value={password}
+                                        onChange={(e) => setPassword(e.target.value)}
                                         required
                                       
                                     />

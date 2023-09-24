@@ -14,6 +14,8 @@ export default function AddFeedback() {
     function sendData(e) {
         e.preventDefault();
 
+
+
     const newFeedback = {
         Username,
         Email,
@@ -26,7 +28,7 @@ export default function AddFeedback() {
 
             title: "Success",
   
-            text: "Successfully Added Feedback!",
+            text: "Successfully Added Feedback!!",
   
             icon: "success",
   
@@ -39,7 +41,7 @@ export default function AddFeedback() {
 
             title: "warning",
   
-            text: "Please Try Again!",
+            text: "Please Try Again!!",
   
             icon: "info",
   

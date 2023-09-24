@@ -79,10 +79,10 @@ const CHeader=()=>{
         <Link to='/myprofile' class="dropdown-item">Profile</Link>
         <a class="dropdown-item" href="#">My Orders</a>
         <div class="dropdown-divider"></div>
-        <Link to='/login' class="dropdown-item text-danger">Log Out</Link>
+        <Link to='/' class="dropdown-item text-danger">Log Out</Link>
        </div>
       </div>
-      <Link to='/login'><button type="button" class="btn btn-warning log">Log In</button></Link>
+      <Link to='/'><button type="button" class="btn btn-warning log">Log In</button></Link>
       </div>
     )
 }

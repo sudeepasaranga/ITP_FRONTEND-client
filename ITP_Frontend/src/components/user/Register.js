@@ -1,33 +1,33 @@
 
 import React, { Fragment, useState} from 'react';
 import {useHistory}  from "react-router-dom";
+import {Link} from 'react-router-dom';
 import axios from "axios";
 import swal from 'sweetalert';
 
 const Register = () => {
 
 let history = useHistory();
-const [fname,setFname] = useState("");
-const [lname,setLname] = useState("");
-const [cemail,setCemail]= useState("");
-const [cpassword,setCpassword]= useState("");
-const [ccpassword,setCcpassword]= useState("");
-
+const [firstName,setFirstName] = useState("");
+const [lastName,setLastName] = useState("");
+const [email,setEmail]= useState("");
+const [password,setPassword]= useState("");
+const [confirmPassword,setConfirmPassword]= useState("");
 
 function sendDetails(e){
 e.preventDefault();
 
      const  newCustomer = {
 
-     fname,
-     lname,
-     cemail,
-     cpassword,
-     ccpassword
+     firstName,
+     lastName,
+     email,
+     password,
+     confirmPassword
      
      }
 
-axios.post("http://localhost:8070/customer/signup",newCustomer).then(()=>{
+axios.post("http://localhost:8081/api/customer/customer/signup",newCustomer).then(()=>{
 
 swal({
 
@@ -45,7 +45,7 @@ swal({
 console.log(" Registration Successfull");
 
 
-history.push("/login");
+history.push("/");
 
 
 }).catch((err)=> {
@@ -83,10 +83,10 @@ console.log("Invalid Registration");
                             <label htmlFor="email_field">First Name</label>
                             <input
                                 type="text"
-                                id="fname"
-                                name="fname"
+                                id="firstName"
+                                name="firstName"
                                 className="form-control"
-                                onChange={(e)=>{ setFname(e.target.value); }}
+                                onChange={(e)=>{ setFirstName(e.target.value); }}
                                 placeholder="Enter First Name"
                                 required
                              
@@ -97,10 +97,10 @@ console.log("Invalid Registration");
                             <label htmlFor="email_field">Last Name</label>
                             <input
                                 type="text"
-                                id="lname"
+                                id="lastName"
                                 className="form-control"
-                                name='lname'
-                                onChange={(e)=>{ setLname(e.target.value); }}
+                                name='lastName'
+                                onChange={(e)=>{ setLastName(e.target.value); }}
                                 placeholder="Enter Last Name"
                                 required
 
@@ -112,26 +112,12 @@ console.log("Invalid Registration");
                             <label htmlFor="email_field">Email</label>
                             <input
                               type="email"
-                              id="cemail"
+                              id="email"
                               className="form-control"
-                              name='cemail'
-                              onChange={(e)=>{ setCemail(e.target.value); }}
+                              name='email'
+                              onChange={(e)=>{ setEmail(e.target.value); }}
                               placeholder="Enter Email"
                               required
-                              
-                            />
-                        </div>
-
-                        <div className="form-group">
-                            <label htmlFor="password_field">Password</label>
-                            <input
-                               type="password"
-                               id="cpassword"
-                               className="form-control"
-                               name='cpassword'
-                               onChange={(e)=>{ setCpassword(e.target.value); }}
-                               placeholder="Enter Password"
-                               required
                               
                             />
                         </div>
@@ -140,12 +126,26 @@ console.log("Invalid Registration");
                             <label htmlFor="password_field">Confirm Password</label>
                             <input
                                  type="password"
-                                 id="ccpassword"
+                                 id="password"
                                  className="form-control"
-                                 name='ccpassword'
-                                 onChange={(e)=>{ setCcpassword(e.target.value); }}
-                                 placeholder="Enter Confirm Password"
+                                 name='password'
+                                 onChange={(e)=>{ setPassword(e.target.value); }}
+                                 placeholder="Enter Password"
                                  required
+                              
+                            />
+                        </div>
+
+                        <div className="form-group">
+                            <label htmlFor="password_field">Confirm Password</label>
+                            <input
+                               type="password"
+                               id="confirmPassword"
+                               className="form-control"
+                               name='confirmPassword'
+                               onChange={(e)=>{ setConfirmPassword(e.target.value); }}
+                               placeholder="Enter Confirm Password"
+                               required
                               
                             />
                         </div>
@@ -158,6 +158,7 @@ console.log("Invalid Registration");
                         >
                             REGISTER
                         </button>
+                        <Link to="/login" className="float-right mt-3">Login Here?</Link>
                     </form>
                 </div>
             </div>

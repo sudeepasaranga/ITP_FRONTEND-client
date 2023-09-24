@@ -83,7 +83,7 @@ export default function AddCart(props) {
                     </div>
 
                     <div className="form-group">
-                      <input type="text" name="quantity" id="quantity" className="form-control0"
+                      <input type="text" name="quantity" id="quantity" placeholder="Type Quantity" className="form-control0"
                         onChange={
                           (e) => {
                             setquantity(e.target.value);

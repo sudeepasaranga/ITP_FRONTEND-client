@@ -12,7 +12,6 @@ import Footer1 from './components/layout/Footer1'
 import Home2 from './components/layout/home2'
 import About from './components/layout/About'
 
-
 /*user*/
 
 import Login from './components/user/Login';
@@ -26,7 +25,6 @@ import AddCart from './components/cart_offer/AddCart';
 import AllCart from './components/cart_offer/AllCart';
 import UpdateCart from './components/cart_offer/UpdateCart'
 
-
 /* feedback */
 import AddFeedback from './components/feedback/Feedback';
 import AddInquiry from './components/feedback/Inquiry';
@@ -34,7 +32,10 @@ import Myfeedback from './components/feedback/Myfeedback';
 import Updatefeedback from './components/feedback/Updatefeedback';
 import Myinquiry from './components/feedback/Myinquiry';
 
+
+
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+
 function App() {
   return (
     <Router>
@@ -42,9 +43,8 @@ function App() {
         <ClientHead/>
            <Switch>
            <Route path="/home2" exact component={Home2}/>
-
-               
-             <Route path="/login" exact component={Login}/>
+   
+             <Route path="/" exact component={Login}/>
              <Route path="/signup" exact component={Register}/>
              <Route path="/reset" exact component={ForgotPassword}/>
              <Route path="/myprofile" exact component={Profile}/>
@@ -61,8 +61,6 @@ function App() {
              <Route path="/Updatefeed/:id" exact component={Updatefeedback} />
              <Route path="/Myinquiry" exact component={Myinquiry} />
   
-
-
            </Switch>
          <Footer1/>
        </div>

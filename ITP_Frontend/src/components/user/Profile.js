@@ -1,14 +1,12 @@
 import React, { Fragment } from 'react'
 import { Link } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+// import { useSelector } from 'react-redux'
 
 const Profile = () => {
 
 
     return (
         <Fragment>
-                
-
                     <h2 className="mt-5 ml-5">My Profile</h2>
                     <div className="row justify-content-around mt-5 user-info">
                         <div className="col-12 col-md-3">
@@ -22,10 +20,7 @@ const Profile = () => {
 
                         <div className="col-12 col-md-5">
                             <h4>Full Name</h4>
-
                             <h4>Email Address</h4>
-                           
-
                             <h4>Joined On</h4>
                            
                             

@@ -1,4 +1,5 @@
 import React, { Fragment, useState, useEffect } from 'react'
+import {Link} from 'react-router-dom';
 
 const ForgotPassword = () => {
 
@@ -19,7 +20,7 @@ const ForgotPassword = () => {
                             
                             />
                         </div>
-
+                        
                         <button
                             id="forgot_password_button"
                             type="submit"
@@ -27,9 +28,11 @@ const ForgotPassword = () => {
                          
                           >
                             Send Email
-                    </button>
+                         </button>
+                         <Link to="/" className="float-right mt-3">Login ?</Link>
 
                     </form>
+                    
                 </div>
             </div>
 
@@ -37,4 +40,4 @@ const ForgotPassword = () => {
     )
 }
 
-export default ForgotPassword;
+export default ForgotPassword
