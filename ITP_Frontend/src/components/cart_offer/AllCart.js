@@ -1,12 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect,cre } from 'react';
+import { useHistory, useParams, Link } from 'react-router-dom';
 import axios from "axios";
 import swal from 'sweetalert';
-import { Link } from "react-router-dom";
 
 
 export default function AllCart() {
 
+    const history = useHistory();
     const [carRes, setCarRes] = useState([]);
+    let Cost = 0;
+      
 
     useEffect(() => {
 
@@ -37,6 +40,11 @@ export default function AllCart() {
             });
     }
     var count = 0;
+    
+    function handleCheckout() {
+        // Navigate to the checkout page and pass totalCost as a URL parameter
+        history.push(`/checkout?totalCost=${Cost}`);
+      }
 
     return (
         <div className="raw">
@@ -91,15 +99,18 @@ export default function AllCart() {
                     {
                         carRes.map((val, res) => {
                             return (
-                                <p>Item:  {count = count + (val.price * val.quantity)}</p>
+                                <p>Item:  {Cost = Cost + (val.price * val.quantity)}</p>
                             )
                         })
                     }
                 </div><br></br>
                 <div className="res">
-                    <p>Total: Rs.{count}.00</p>
+                    <p>Total: Rs.{Cost}.00</p>
+                    <button onClick={handleCheckout}className="btn btn-success">Process To Checkout</button>
                     </div>
-                <Link to="#"><button className="btn btn-success">Process To Checkout</button></Link>
+                {/* <Link to="/checkout"> */}
+                    
+                    {/* </Link> */}
             </div>
         </div>
     )

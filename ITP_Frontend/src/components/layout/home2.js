@@ -6,6 +6,7 @@ import {FaCartPlus} from 'react-icons/fa';
 const Home2=() =>{
       const[products, setProducts] = useState([]);
       const[searchTerm, setsearchTerm] = useState("");
+      const [selectedCategory, setSelectedCategory] = useState('');
 
 
       useEffect(()=>{
@@ -16,6 +17,11 @@ const Home2=() =>{
         const result = await axios.get("http://localhost:8081/api/catalogue/item/getallitems");
         setProducts(result.data.reverse());
       };
+
+      const handleCategoryChange = (e) => {
+        setSelectedCategory(e.target.value);
+      };
+
     return(
       <div className="middle">
         
@@ -60,6 +66,7 @@ const Home2=() =>{
 </div>
 
      <h3 className="text5">Latest Arrivals</h3>
+  
      <div className="input-groups">
                 <input
                     type="text"
@@ -70,23 +77,42 @@ const Home2=() =>{
              }} />
                
             </div>
+     <div>
+     <label>
+        Filter by Category:
+        <select onChange={handleCategoryChange} value={selectedCategory}>
+          <option value="">All Categories</option>
+          <option value="Living Room Furniture">Living Room Furniture</option>
+          <option value="Outdoor Furniture"> Outdoor Furniture</option>
+          <option value="Office Furniture"> Office Furniture</option>
+          <option value="Kids Furniture"> Kids Furniture</option>
+          {/* Add more categories as needed */}
+        </select>
+      </label>
+      </div> 
+
      <div className="raw">
 
-     {products.filter(val =>{
-
-                if(searchTerm === ""){
-
-                    return val;
-
-                } else if(
-
-                  val.itemName.toLowerCase().includes(searchTerm.toLowerCase())|| val.itemCategory.toLowerCase().includes(searchTerm.toLowerCase())
-                ){
-
-                return val;
-
-                }
-
+     {products.filter((val) => {
+          if (searchTerm === "") {
+            return true; // Show all products when no search term is provided
+          } else if (
+            val.itemName.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            val.itemCategory.toLowerCase().includes(searchTerm.toLowerCase())
+          ) {
+            return true;
+          } else {
+            return false;
+          }
+        })
+        .filter((val) => {
+          if (selectedCategory === "") {
+            return true; // Show all products when no category is selected
+          } else if (val.itemCategory === selectedCategory) {
+            return true;
+          } else {
+            return false;
+          }
                 }).map((prod, index) => (
 
                     <div class="card" >

@@ -76,8 +76,7 @@ const CHeader=()=>{
           <button class="btn btn-warning dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
        </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <Link to='/myprofile' class="dropdown-item">Profile</Link>
-        <a class="dropdown-item" href="#">My Orders</a>
+      <Link to={'/orders'}> <a class="dropdown-item" href="#">My Orders</a></Link> 
         <div class="dropdown-divider"></div>
         <Link to='/' class="dropdown-item text-danger">Log Out</Link>
        </div>

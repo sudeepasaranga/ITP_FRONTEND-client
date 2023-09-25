@@ -32,6 +32,15 @@ import Myfeedback from './components/feedback/Myfeedback';
 import Updatefeedback from './components/feedback/Updatefeedback';
 import Myinquiry from './components/feedback/Myinquiry';
 
+/* Order */
+import Checkout from './components/order/checkout';
+import payMethod from'./components/order/payMethod';
+import CardDetails from './components/order/cardDetails';
+import AddCard from './components/order/AddCard';
+import UpdateCard from './components/order/UpdateCard';
+import ViewCard from './components/order/ViewCard';
+import PaySuccess from './components/order/PaySuccess';
+import AllOrders from './components/order/AllOrders';
 
 
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
@@ -60,6 +69,14 @@ function App() {
              <Route path="/Myfeedback" exact component={Myfeedback} />
              <Route path="/Updatefeed/:id" exact component={Updatefeedback} />
              <Route path="/Myinquiry" exact component={Myinquiry} />
+             <Route path="/checkout" exact component={Checkout}/>
+             <Route path="/payMethod" exact component={payMethod}/>
+             <Route path="/cardDetails" exact component={CardDetails}/>
+             <Route path="/addCard" exact component={AddCard}/>
+             <Route path="/updatecard/:id" exact component={UpdateCard}/>
+             <Route path="/viewcard/:id" exact component={ViewCard}/>
+             <Route path="/paySuccess" exact component={PaySuccess}/>
+             <Route path="/orders" exact component={AllOrders}/>
   
            </Switch>
          <Footer1/>

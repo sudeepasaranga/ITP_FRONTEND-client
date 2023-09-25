@@ -5,7 +5,7 @@ import { useHistory } from 'react-router';
 
 export default function AddCart(props) {
 
-  let id = props.match.params.itemId;
+  let id = props.match.params.id;
 
   const [data, setData] = useState([]);
 
