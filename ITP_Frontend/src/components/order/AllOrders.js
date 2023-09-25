@@ -5,7 +5,7 @@ import {FaTrashAlt} from "react-icons/fa"
 import {AiFillEdit, AiFillEye} from 'react-icons/ai'
 import swal from 'sweetalert';
 import '../../css/Table.css';
-import Sidebar from './Sidebar'
+import Side from './Side';
 
 const AllOrders=() => {
 
@@ -58,7 +58,7 @@ const AllOrders=() => {
           <div class="container-fluid">
             <div className="row">
                 <div className="col-lg-2 pl-0">
-                <Sidebar />
+                <Side />
                 </div>
                 <div class="col-lg-10">
                 <div className="section">
